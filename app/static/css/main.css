@@ -1,0 +1,31 @@
+body
+{
+    margin-top: 0;
+    min-height: 500px;
+    background: #FFF7EB;
+    text-align: center;
+}
+
+.loginForm
+{
+    width: 200px;
+    margin: auto;
+    text-align: left;
+}
+.loginInput
+{
+    width: 200px;
+    height: 30px !important;
+}
+.submitBtn
+{
+    width: 200px !important;
+    height: 35px !important;
+    border-radius: 5px; 
+}
+#logo
+{
+    margin: 5% auto 10px;
+    width: 350px;
+    height: 150px;
+}

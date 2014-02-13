@@ -1,0 +1,18 @@
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+        <title>{% block title %}pillowCat{% endblock %}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        {% block css %}
+            <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet" media="screen">
+            <link rel="stylesheet" href="{{ url_for('static',filename='css/main.css') }}" />
+        {% endblock %}
+        {% block script %}
+            <script src="http://code.jquery.com/jquery.js"></script>
+            <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+        {% endblock %}
+    </head>
+    <body>
+        {% block content %}{% endblock %}
+    </body>
+</html>

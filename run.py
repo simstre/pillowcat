@@ -1,8 +1,9 @@
-import os
 from flask import Flask
+from app.views import main
 
 app = Flask(__name__)
+app.register_blueprint(main)
 
-@app.route('/')
-def main():
-    return 'pillowCat main page :)'
+if __name__ == "__main__":
+    app.run()
+

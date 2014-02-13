@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div>
+    <img src="{{ url_for('static', filename="img/logo.png/") }}" alt="breakfastReader logo" id="logo">
+    <form class="loginForm" action="" method="POST">
+        Username<br/>
+        <input type="text" name="username" class="loginInput"><br/>
+        Password<br/>
+        <input type="text" name="password" class="loginInput"><br/><br/>
+        <input type="submit" value="Sign In" class="btn btn-primary submitBtn"><br/><br/>
+        <input type="checkbox" style="margin: 0; margin-left: 20px" name="keepLogin" value="keepLogin"> <span>KEEP ME SIGNED IN</span><br/>
+    </form>
+</div>
+{% endblock %}

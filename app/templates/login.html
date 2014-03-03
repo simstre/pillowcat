@@ -8,6 +8,11 @@
         <input type="text" name="username" class="loginInput"><br/>
         Password<br/>
         <input type="text" name="password" class="loginInput"><br/><br/>
+        {% for msg in get_flashed_messages() %}
+            {% if msg %}
+                <p class="errMsg">{{ msg }}</p>
+            {% endif %}
+        {% endfor %}
         <input type="submit" value="Sign In" class="btn btn-primary submitBtn"><br/><br/>
         <input type="checkbox" style="margin: 0; margin-left: 20px" name="keepLogin" value="keepLogin"> <span>KEEP ME SIGNED IN</span><br/>
     </form>

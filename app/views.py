@@ -24,25 +24,36 @@ main = Blueprint('app', __name__, template_folder='templates', static_folder='st
 @main.route('/', methods=['GET', 'POST'])
 def front():
 	if request.method == 'GET':
-		return render_template('login.html')
+		return render_template('front.html')
 	else:
 		success, next_view = validate_credential(request.form)
 		return redirect(url_for('.' + next_view))
 
-		# Authenticate user (limit to 3 tries, then lock for 1hr, redirect to forgot password page)
+		# Authenticate user (rate limit to 3 tries, then lock for 1hr, redirect to forgot password page)
 		# If first time using app, redirect to "what are you looking for?" page
-		# Display main deck, what makes mroe sense? pins on map showing what people are selling? or "trends" or "hot items" or "similar stuff"?
+		# Display main deck, what makes more sense? pins on map showing what people are selling? or "trends" or "hot items" or "similar stuff"?
 
 @main.route('/signup')
-def signup(): pass
+def signup():
+	return render_template('signup.html')
+
+@main.route('/main/')
+@login_required
+def main():
+	data = None
+	return render_template('main.html', data=data)
+
+@main.route('/listings')
+@login_required
+def listings():
+	item = request.args.get('item')
+	# generate a page with listings for that item
+	listings = None
+	return render_template('listings.html', listings=listings)
 
 @main.route('/settings')
 @login_required
 def settings(): pass
-
-@main.route('/main/')
-@login_required
-def test(): pass
 
 ###############################################################################
 # Helper function

@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div>
+    <!-- Ranking table -->
+    <div>
+        <h2>Hot Trend</h2>
+        <div class="table">
+            <div class="thead">
+                <span class="column col1">Ranking</span>
+                <span class="column col2">Item</span>
+                <span class="column col3"># of listing</span>
+            </div>
+            {% for item in data %}            
+                <a href="{{ url_for('listings', item=item.get('item_name') }}">
+                    <span class="column col1">{{ item.get('ranking') }}</span>
+                    <span class="column col2">{{ item.get('item_name') }}</span>
+                    <span class="column col3">{{ item.get('num_total_records') }}</span>
+                </a>
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- next content -->
+    <div>
+    </div>
+</div>
+{% endblock %}
+
+
+    
